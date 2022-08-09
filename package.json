@@ -1,0 +1,25 @@
+{
+  "name": "10module",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/azariahgarrido/10module.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/azariahgarrido/10module/issues"
+  },
+  "homepage": "https://github.com/azariahgarrido/10module#readme",
+  "keywords": [],
+  "dependencies": {
+    "fs": "^0.0.1-security",
+    "inquirer": "^8.1.0"
+  }
+
+}
