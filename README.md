@@ -10,6 +10,8 @@ Inquirer must be installed for user input.
 Jest must be installed in order to run the tests.
 Node_modules and package-lock will be installed aswell.
 
+https://drive.google.com/file/d/1zjI6XHzS1LyMuBbQIUCV0SYl7-GsPFeY/view
+
 ## Usage
 
 Will be used whenever a new employee is hired, 
