@@ -1,56 +1,63 @@
 
-
+// these are nested functions in order to generate the html
 
 const generateTeam = team => {
 
     const generateManager = manager => {
         return `
-        <header>
-            <div>Manager Name: ${manager.getName()} </div>
-            <div>Manager Role: ${manager.getRole()} </div>
-        </header>
-        <div>
-            <ul>
-                <li>ID: ${manager.getId()}</li>
-                <li>Email: ${manager.getEmail()}</li>
-                <li>Office Number: ${manager.getOfficeNumber()}</li>
-            </ul>
+        <div class = "bigDiv">
+            <header class = "headerOne">
+                <div>Manager Name: ${manager.getName()} </div>
+                <div>Manager Role: ${manager.getRole()} </div>
+            </header>
+            <div>
+                <ul>
+                    <li>ID: ${manager.getId()}</li>
+                    <li>Email: <a href="mailto:">${manager.getEmail()}</a></li>
+                    <li>Office Number: ${manager.getOfficeNumber()}</li>
+                </ul>
+            </div>
         </div>`;
     };
 
     const generateEngineer = engineer => {
         return `
-        <header>
-            <div>Engineer Name: ${engineer.getName()}</div>
-            <div>Engineer Role: ${engineer.getRole()}</div>
-        </header>
-        <div>
-            <ul>
-                <li>ID: ${engineer.getId()}</li>
-                <li>Email: ${engineer.getEmail()}</li>
-                <li>Github Link: ${engineer.getGithub()}</li>
-            </ul>
+        <div class = "bigDiv">
+            <header class = "headerOne">
+                <div>Engineer Name: ${engineer.getName()}</div>
+                <div>Engineer Role: ${engineer.getRole()}</div>
+            </header>
+            <div>
+                <ul>
+                    <li>ID: ${engineer.getId()}</li>
+                    <li>Email: <a href="mailto:">${engineer.getEmail()}</a></li>
+                    <a href = "https://github.com/${engineer.getGithub()}" target = "_blank">Github: ${engineer.getGithub()}</a>
+                </ul>
+            </div>
         </div>`;
     };
 
     const generateIntern = intern => {
         return `
-        <header>
-            <div>Intern Name: ${intern.getName()}</div>
-            <div>Intern Role: ${intern.getRole()}</div>
-        </header>
-        <div>
-            <ul>
-                <li>ID: ${intern.getId()}</li>
-                <li>Email: ${intern.getEmail()}</li>
-                <li>School Name: ${intern.getSchool()}</li>
-            </ul>
+        <div class = "bigDiv">
+            <header class = "headerOne">
+                <div>Intern Name: ${intern.getName()}</div>
+                <div>Intern Role: ${intern.getRole()}</div>
+            </header>
+            <div>
+                <ul>
+                    <li>ID: ${intern.getId()}</li>
+                    <li>Email: <a href="mailto:${intern.getEmail()}">${intern.getEmail()}</a></li>
+                    <li>School Name: ${intern.getSchool()}</li>
+                </ul>
+            </div>
         </div>`;
     };
 
 
     const html = [];
 
+    // here we add the team to the html array
 
     html.push(team
         .filter(employee => employee.getRole() === "Manager")
@@ -78,17 +85,17 @@ module.exports = team => {
     <head>
     <meta charset="UTF-8" />
     <title>My Team</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <div>
-        <h1>My Team</h1>
-    </div>
-    <div>
-        ${generateTeam(team)}
-    </div>
-</body>
-</html>`;
+    <link rel="stylesheet" href="./Public/style.css">
+    </head>
+    <body>
+        <div>
+            <h1 class = "teamHead">My Team</h1>
+        </div>
+        <div class = "flexDiv">
+            ${generateTeam(team)}
+        </div>
+    </body>
+    </html>`;
 };
 
 

@@ -1,0 +1,39 @@
+.teamHead {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: red;
+    color: white;
+}
+
+
+.flexDiv {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.bigDiv {
+    width: 330px;
+    border-style: solid;
+    border-width: 1px;
+    box-shadow: 2px 2px;
+}
+
+
+.headerOne {
+    background-color: blue;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+li {
+    border-style: solid;
+    border-width: 1px;
+    width: 270px;
+}

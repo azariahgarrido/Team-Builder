@@ -1,15 +1,17 @@
+// brings in any dependacies
 const inquirer = require('inquirer');
 const fs = require('fs');
+// connects index to other js files
 const generateHtml = require('./generateHtml');
 const Manager = require('./Assets/Manager');
 const Engineer = require('./Assets/Engineer');
 const Intern = require('./Assets/Intern');
 
-// module.exports = index.js
-
+// array to hold employees after making them
 const team = [];
 
 
+// starts the application
 function genesis() {
     inquirer.prompt(
         {
@@ -19,11 +21,11 @@ function genesis() {
         }
     ).then(
         answer => {
+            // if the answer to genesis is, then run
             if(answer.genesis === 'Add a new team manager') {
                 addManager();
             } else {
                 console.log("Team complete!");
-                // writeToFile("index.html", team);
             }
         }
     )
@@ -61,16 +63,13 @@ function addManager() {
     ]).then(
         answer => {
             const newManager = new Manager(answer.name, answer.id, answer.email, answer.officeNumber);
-            // const managers = [];
-            // managers.push(newManager);
             team.push(newManager); 
+
             if(answer.addEmployee === 'Add a new team member') {
                 managerNext();
             } else if(answer.addEmployee === 'Finish building team' ) {
                 console.log("Team complete!");
-                // console.log(team);
                 writeToFile("index.html", team);
-                // return;
             }    
         }
     )
@@ -121,7 +120,7 @@ function addEngineer() {
         {
             name: 'github',
             type: 'input',
-            message: 'Enter full github link:'
+            message: 'Enter github username:'
         },
         {
             name: "addEmployee",
@@ -197,7 +196,7 @@ function addIntern() {
 };
 
 
-
+// this function will add the employees as they are made
 function writeToFile(fileName, data) {  
     const htmldata = generateHtml(data);
    fs.writeFileSync(fileName, htmldata, (err) => err ? console.log(err) : console.log('File Created!'));
